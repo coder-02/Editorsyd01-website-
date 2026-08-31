@@ -1,0 +1,12 @@
+.work-filter { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: clamp(2.5rem, 6vh, 4rem); }
+.work-filter__btn {
+  font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500;
+  padding: 0.6rem 1.15rem; border: 1px solid var(--line); border-radius: 40px; color: var(--gray);
+  transition: color 0.4s, border-color 0.4s, background 0.4s;
+}
+.work-filter__btn:hover { color: var(--white); border-color: var(--line-strong); }
+.work-filter__btn.is-on { background: var(--white); color: #000; border-color: var(--white); }
+
+.work-page-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.4rem, 3vw, 2.6rem); }
+@media (max-width: 900px) { .work-page-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .work-page-grid { grid-template-columns: 1fr; } }

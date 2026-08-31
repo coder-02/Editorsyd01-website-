@@ -1,0 +1,42 @@
+.footer { padding-top: clamp(4rem, 10vh, 8rem); padding-bottom: 2.5rem; border-top: 1px solid var(--line); background: var(--black-2); position: relative; }
+
+.footer__cta { margin-bottom: clamp(3rem, 8vh, 6rem); }
+.footer__big {
+  display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.2rem;
+  font-family: var(--font-display); font-size: clamp(2.8rem, 11vw, 8rem); line-height: 0.95;
+  text-transform: uppercase; color: var(--white); transition: color 0.5s var(--ease-cine);
+}
+.footer__big:hover { color: var(--accent); }
+.footer__big-arrow { transition: transform 0.5s var(--ease-cine); }
+.footer__big:hover .footer__big-arrow { transform: translate(10px, -10px); }
+
+.footer__grid {
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 2.5rem;
+  padding: clamp(2.5rem, 6vh, 4rem) 0;
+}
+.footer__logo { height: 40px; width: auto; margin-bottom: 1.4rem; filter: drop-shadow(0 0 16px rgba(255,255,255,0.06)); }
+.footer__tagline { font-family: var(--font-display); font-size: 1.3rem; letter-spacing: 0.14em; color: var(--white); }
+.footer__owner { color: var(--gray-dim); font-size: 0.85rem; margin-top: 0.5rem; }
+
+.footer__col { display: flex; flex-direction: column; gap: 0.85rem; }
+.footer__col h4 { font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gray-dim); font-weight: 600; margin-bottom: 0.5rem; }
+.footer__col a { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gray); font-size: 0.92rem; transition: color 0.35s, transform 0.35s var(--ease-cine); width: fit-content; }
+.footer__col a:hover { color: var(--white); transform: translateX(4px); }
+.footer__muted { color: var(--gray-dim); font-size: 0.9rem; }
+
+.footer__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 2rem; border-top: 1px solid var(--line); font-size: 0.72rem;
+  letter-spacing: 0.1em; color: var(--gray-dim); text-transform: uppercase; flex-wrap: wrap; gap: 1rem;
+}
+.footer__credit { color: var(--gray); transition: color 0.4s; }
+.footer__credit:hover { color: var(--accent); }
+@media (max-width: 640px) { .footer__bottom { justify-content: flex-start; } }
+
+@media (max-width: 900px) {
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer__brand { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .footer__grid { grid-template-columns: 1fr; }
+}

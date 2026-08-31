@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 150" width="520" height="150" role="img" aria-label="Editorsyd01 Cinematic">
+  <defs>
+    <style>
+      .word { font-family: 'Bebas Neue', Impact, sans-serif; font-style: italic; fill: #f6f6f4; letter-spacing: 1px; }
+      .sub { font-family: 'Bebas Neue', Impact, sans-serif; fill: #f6f6f4; letter-spacing: 14px; }
+    </style>
+  </defs>
+  <!-- Placeholder wordmark. REPLACE with the official PNG logo: save it as public/assets/logo.png and update src/config/site.js -->
+  <text x="8" y="92" class="word" font-size="96" transform="skewX(-12)">EditorSyd</text>
+  <text x="360" y="92" class="word" font-size="96" transform="skewX(-12)">01</text>
+  <line x1="10" y1="118" x2="150" y2="118" stroke="#f6f6f4" stroke-width="2"/>
+  <text x="165" y="128" class="sub" font-size="26">CINEMATIC</text>
+  <line x1="405" y1="118" x2="512" y2="118" stroke="#f6f6f4" stroke-width="2"/>
+</svg>

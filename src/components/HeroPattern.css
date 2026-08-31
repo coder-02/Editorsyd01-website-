@@ -1,0 +1,63 @@
+.hpat { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+
+/* Perspective moving grid — feels like a film set floor */
+.hpat__grid {
+  position: absolute; inset: -50% -20% 0; opacity: 0.14;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 64px 64px;
+  transform: perspective(520px) rotateX(62deg) translateY(0);
+  transform-origin: center bottom;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 80%);
+  animation: hpatGrid 16s linear infinite;
+}
+@keyframes hpatGrid { from { background-position: 0 0; } to { background-position: 0 64px; } }
+
+/* Slow horizontal scan line, like a color-grade scope sweep */
+.hpat__scan {
+  position: absolute; left: 0; right: 0; height: 42%; top: -42%;
+  background: linear-gradient(180deg, transparent, rgba(216,178,106,0.06) 60%, rgba(255,255,255,0.05));
+  filter: blur(6px);
+  animation: hpatScan 9s var(--ease-cine) infinite;
+}
+@keyframes hpatScan { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(340%); opacity: 0; } }
+
+/* Drifting soft light orbs */
+.hpat__orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.5; }
+.hpat__orb--1 { width: 46vw; height: 46vw; max-width: 620px; max-height: 620px; top: -12%; right: -8%;
+  background: radial-gradient(circle, rgba(216,178,106,0.22), transparent 70%); animation: hpatFloat1 20s ease-in-out infinite alternate; }
+.hpat__orb--2 { width: 40vw; height: 40vw; max-width: 540px; max-height: 540px; bottom: -18%; left: -10%;
+  background: radial-gradient(circle, rgba(120,150,200,0.14), transparent 70%); animation: hpatFloat2 24s ease-in-out infinite alternate; }
+@keyframes hpatFloat1 { from { transform: translate(0,0) scale(1); } to { transform: translate(-6%, 8%) scale(1.12); } }
+@keyframes hpatFloat2 { from { transform: translate(0,0) scale(1); } to { transform: translate(8%, -6%) scale(1.1); } }
+
+/* Diagonal light beam sweeping across, like a projector */
+.hpat__beam {
+  position: absolute; top: -60%; left: -30%; width: 40%; height: 220%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  transform: rotate(18deg); filter: blur(10px);
+  animation: hpatBeam 11s ease-in-out infinite;
+}
+@keyframes hpatBeam { 0% { left: -35%; opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { left: 120%; opacity: 0; } }
+
+/* Faint animated dot field */
+.hpat__noise {
+  position: absolute; inset: 0; opacity: 0.5;
+  background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1.4px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 30%, #000, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 30%, #000, transparent 75%);
+  animation: hpatDots 30s linear infinite;
+}
+@keyframes hpatDots { from { background-position: 0 0; } to { background-position: 46px 46px; } }
+
+/* Variant tweaks per page mood */
+.hpat--reel .hpat__orb--2 { background: radial-gradient(circle, rgba(200,120,160,0.14), transparent 70%); }
+.hpat--cool .hpat__orb--1 { background: radial-gradient(circle, rgba(140,170,210,0.16), transparent 70%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hpat__grid, .hpat__scan, .hpat__orb, .hpat__beam, .hpat__noise { animation: none; }
+  .hpat__scan, .hpat__beam { display: none; }
+}

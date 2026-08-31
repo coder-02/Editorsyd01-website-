@@ -1,0 +1,161 @@
+/* ============================================================
+   EDITORSYD01 — CINEMATIC DESIGN SYSTEM
+   ============================================================ */
+
+:root {
+  --black: #050505;
+  --black-2: #0a0a0b;
+  --panel: #0d0e10;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --white: #f6f6f4;
+  --gray: #9a9a9a;
+  --gray-dim: #6a6a6a;
+  --gray-faint: #3a3a3a;
+  /* subtle cinematic accent — warm film amber, used very sparingly */
+  --accent: #d8b26a;
+  --accent-glow: rgba(216, 178, 106, 0.4);
+
+  --font-display: 'Bebas Neue', 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --ease-cine: cubic-bezier(0.16, 1, 0.3, 1);
+  --maxw: 1400px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  letter-spacing: 0.01em;
+  cursor: auto;
+}
+
+@media (min-width: 1025px) {
+  body.custom-cursor-on { cursor: none; }
+  body.custom-cursor-on a,
+  body.custom-cursor-on button { cursor: none; }
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+img, video { display: block; max-width: 100%; }
+ul { list-style: none; }
+::selection { background: var(--accent); color: #000; }
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: #1c1c1e; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #2a2a2c; }
+
+/* ---------- Layout helpers ---------- */
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 5rem); }
+.section { padding: clamp(5rem, 12vh, 11rem) 0; position: relative; }
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gray);
+  font-weight: 500;
+}
+.accent-line { display: inline-block; width: 42px; height: 1px; background: var(--accent); vertical-align: middle; margin-right: 1rem; opacity: 0.8; }
+
+/* ---------- Cinematic display type ---------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 8vw, 8.5rem);
+}
+.display-md { font-size: clamp(2.2rem, 6vw, 5.5rem); }
+.serif-italic { font-family: var(--font-serif); font-style: italic; font-weight: 400; text-transform: none; }
+
+.lead {
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  color: var(--gray);
+  font-weight: 300;
+  max-width: 46ch;
+  line-height: 1.7;
+}
+
+/* ---------- Film grain overlay ---------- */
+.grain {
+  position: fixed; inset: -50%; z-index: 9998; pointer-events: none;
+  opacity: 0.05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainShift 0.7s steps(3) infinite;
+}
+@keyframes grainShift {
+  0% { transform: translate(0,0); } 33% { transform: translate(-3%, 2%); } 66% { transform: translate(2%, -2%); } 100% { transform: translate(0,0); }
+}
+
+/* ---------- Vignette ---------- */
+.vignette { position: fixed; inset: 0; z-index: 9997; pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%); }
+
+/* ---------- Scroll progress bar ---------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 2.5px; z-index: 9999;
+  transform-origin: 0%; pointer-events: none;
+  background: linear-gradient(90deg, var(--accent), #fff);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+
+/* ---------- Custom cursor ---------- */
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; z-index: 10000; pointer-events: none; border-radius: 50%; transform: translate(-50%, -50%); }
+.cursor-dot { width: 6px; height: 6px; background: var(--white); }
+.cursor-ring { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.5); transition: width 0.3s var(--ease-cine), height 0.3s var(--ease-cine), background 0.3s, border-color 0.3s; }
+.cursor-ring.hover { width: 64px; height: 64px; background: rgba(255,255,255,0.06); border-color: var(--accent); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  position: relative; display: inline-flex; align-items: center; gap: 0.7rem;
+  padding: 1.05rem 2.2rem; font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase; border: 1px solid var(--line-strong);
+  color: var(--white); background: transparent; overflow: hidden; border-radius: 2px;
+  transition: color 0.5s var(--ease-cine), border-color 0.5s var(--ease-cine);
+}
+.btn::before {
+  content: ''; position: absolute; inset: 0; background: var(--white); transform: translateY(101%);
+  transition: transform 0.5s var(--ease-cine); z-index: -1;
+}
+.btn:hover { color: #000; border-color: var(--white); }
+.btn:hover::before { transform: translateY(0); }
+.btn svg { position: relative; z-index: 1; }
+
+.btn-primary { border-color: var(--white); background: var(--white); color: #000; }
+.btn-primary::before { background: var(--accent); }
+.btn-primary:hover { color: #000; border-color: var(--accent); }
+
+.btn-ghost { border-color: var(--line-strong); }
+
+/* ---------- Reveal (fallback if motion reduced) ---------- */
+.reveal-line { overflow: hidden; display: block; }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  .grain { display: none; }
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ---------- Utility ---------- */
+.text-accent { color: var(--accent); }
+.text-gray { color: var(--gray); }
+.mono { font-variant-numeric: tabular-nums; letter-spacing: 0.1em; }
+.divider { height: 1px; background: var(--line); width: 100%; }
+.noise-panel { background:
+  radial-gradient(120% 120% at 80% -10%, rgba(216,178,106,0.05), transparent 55%),
+  var(--black); }

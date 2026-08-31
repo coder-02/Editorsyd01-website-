@@ -1,0 +1,5 @@
+# Cloudflare Pages configuration for Editorsyd01
+# Used by the Cloudflare "Pages" build system and Wrangler CLI.
+name = "editorsyd01-cinematic"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "dist"

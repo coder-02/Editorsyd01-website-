@@ -1,0 +1,19 @@
+.page-hero {
+  position: relative; min-height: 74vh; display: flex; align-items: flex-end;
+  padding-top: 9rem; padding-bottom: clamp(3rem, 8vh, 6rem); overflow: hidden;
+}
+.page-hero__bg {
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+  filter: brightness(0.82) contrast(1.04) saturate(1.02); transform: scale(1.04);
+  animation: heroDrift 22s ease-in-out infinite alternate;
+}
+@keyframes heroDrift { from { transform: scale(1.04) translateY(0); } to { transform: scale(1.12) translateY(-2%); } }
+.page-hero__overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5,5,5,0.35) 0%, rgba(5,5,5,0.1) 35%, rgba(5,5,5,0.55) 72%, rgba(5,5,5,0.96) 100%),
+    linear-gradient(90deg, rgba(5,5,5,0.5) 0%, transparent 55%);
+}
+.page-hero__inner { position: relative; z-index: 2; }
+.page-hero__title { margin: 1.4rem 0; max-width: 16ch; }
+.page-hero__sub { margin-top: 0.5rem; }

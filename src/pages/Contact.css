@@ -1,0 +1,43 @@
+.contact-grid { display: grid; grid-template-columns: 1.4fr 0.8fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: start; }
+.contact-form-title { margin: 1rem 0 2.2rem; }
+
+.contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.cf-field { display: flex; flex-direction: column; gap: 0.6rem; }
+.cf-field span { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-dim); }
+.cf-hint { font-style: normal; text-transform: none; letter-spacing: 0.04em; color: var(--accent); opacity: 0.85; margin-left: 0.35rem; }
+.cf-field input, .cf-field select, .cf-field textarea {
+  background: transparent; border: none; border-bottom: 1px solid var(--line-strong);
+  color: var(--white); font-family: var(--font-body); font-size: 1rem; padding: 0.7rem 0;
+  transition: border-color 0.4s; border-radius: 0;
+}
+.cf-field textarea { resize: vertical; }
+.cf-field input:focus, .cf-field select:focus, .cf-field textarea:focus { outline: none; border-color: var(--accent); }
+.cf-field input::placeholder, .cf-field textarea::placeholder { color: var(--gray-faint); }
+.cf-field select option { background: var(--black-2); color: var(--white); }
+
+.cf-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.cf-submit { align-self: flex-start; }
+.cf-submit.is-sent { background: var(--accent); border-color: var(--accent); }
+.cf-note { font-size: 0.78rem; color: var(--gray-dim); line-height: 1.6; max-width: 48ch; }
+
+.contact-side__h { font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gray-dim); margin-bottom: 1.5rem; }
+.contact-channels { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem; }
+.contact-channel {
+  display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: var(--white);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px) saturate(1.3); -webkit-backdrop-filter: blur(12px) saturate(1.3);
+  transition: border-color 0.4s, background 0.4s, transform 0.4s var(--ease-cine), box-shadow 0.4s;
+}
+.contact-channel:hover {
+  border-color: rgba(216,178,106,0.35); background: rgba(255,255,255,0.07);
+  transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.4), 0 0 30px rgba(216,178,106,0.08);
+}
+.contact-channel svg { color: var(--accent); flex-shrink: 0; }
+.contact-channel span { display: block; font-size: 0.95rem; }
+.contact-channel small { color: var(--gray-dim); font-size: 0.8rem; }
+.contact-quick { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+@media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .cf-row { grid-template-columns: 1fr; } }

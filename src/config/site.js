@@ -171,9 +171,12 @@ export const services = [
   { n: '01', title: 'Cinematic Video Editing', desc: 'Story-first edits with intentional pacing, rhythm and emotional flow.' },
   { n: '02', title: 'Wedding Films', desc: 'Timeless films that hold the feeling of the day, frame by frame.' },
   { n: '03', title: 'Reels & Short-Form', desc: 'Scroll-stopping vertical edits built for reach and retention.' },
-  { n: '04', title: 'Color Grading', desc: 'Filmic tones and mood crafted to give footage a signature look.' },
-  { n: '05', title: 'Sound Design', desc: 'Layered audio, foley and mix that make every cut feel alive.' },
-  { n: '06', title: 'Motion & Visual Effects', desc: 'Clean motion, titles and VFX that elevate without distraction.' },
+  { n: '04', title: 'Car Delivery Shoot', desc: 'Cinematic delivery films that turn the handover moment into a memory worth reliving.' },
+  { n: '05', title: 'Shop Shoot', desc: 'Premium store films that showcase your space, products and vibe like a brand.' },
+  { n: '06', title: 'Product Shoot', desc: 'Clean, detail-focused product visuals crafted to make every item look its best.' },
+  { n: '07', title: 'Color Grading', desc: 'Filmic tones and mood crafted to give footage a signature look.' },
+  { n: '08', title: 'Sound Design', desc: 'Layered audio, foley and mix that make every cut feel alive.' },
+  { n: '09', title: 'Motion & Visual Effects', desc: 'Clean motion, titles and VFX that elevate without distraction.' },
 ]
 
 // ----- PROCESS -----
